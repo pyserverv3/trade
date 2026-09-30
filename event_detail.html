@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}{{ event.title }} — Lutan{% endblock %}
+{% block content %}
+<section class="page-hero">{% if event.image_url %}<img class="detail-image" src="{{event.image_url}}" alt="">{% endif %}<span class="eyebrow">{{event.date}}</span><h1>{{event.title}}</h1><p>{{event.venue}}</p></section>
+<section class="section narrow"><div class="content-box"><h2>Event details</h2><p>{{event.description}}</p>{% if event.price %}<strong>{{event.price}}</strong>{% endif %}</div></section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Learn — Lutan Trading Academy{% endblock %}
+{% block content %}
+<section class="page-hero"><span class="eyebrow">THE COMPLETE BLUEPRINT</span><h1>Learn trading one step at a time.</h1><p>Platform basics, XAUUSD, BUY/SELL, lot size, Stop Loss, Take Profit and practical execution.</p></section>
+<section class="section">
+  <div class="lesson-list">
+    {% for n,title,body in [
+      (1,"Download and understand your trading platform","Learn the Quotes, Chart, Trade and History areas before placing any order."),
+      (2,"Create a demo account","A demo account lets you learn execution without risking real money."),
+      (3,"Find XAUUSD","On many platforms, Gold is represented by XAUUSD. Search for the symbol and add it to your watchlist."),
+      (4,"Learn BUY and SELL","BUY is used when your plan expects upward movement; SELL is used when your plan expects downward movement."),
+      (5,"Learn lot size, SL and TP","Position size controls exposure. Stop Loss defines a loss limit and Take Profit defines a target."),
+      (6,"Practice copying a structured setup","A setup can be written as direction + entry + SL + TP. Understand each number before executing."),
+      (7,"Review and improve","Keep a journal, review trades and adjust your process based on evidence rather than emotion.")
+    ] %}
+    <article class="lesson"><div class="lesson-no">0{{n}}</div><div><h2>{{title}}</h2><p>{{body}}</p></div></article>
+    {% endfor %}
+  </div>
+</section>
+<section class="risk-box section"><h2>Risk first</h2><p>Forex and CFD trading can result in substantial losses. Demo practice does not remove the risks of live trading. Never use money you cannot afford to lose.</p></section>
+{% endblock %}

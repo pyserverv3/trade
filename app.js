@@ -1,0 +1,3 @@
+document.addEventListener("DOMContentLoaded",()=>{const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.08});document.querySelectorAll(".reveal,.step-card,.lesson,.event-card").forEach(e=>obs.observe(e));});
+function calculateRisk(){const b=parseFloat(document.getElementById("balance").value)||0;const r=parseFloat(document.getElementById("risk").value)||0;document.getElementById("risk-result").textContent=`Maximum planned loss: $${(b*r/100).toFixed(2)}`;}
+function copySignal(){navigator.clipboard?.writeText("LUTAN TRADE IDEA\\nDirection: BUY/SELL\\nEntry: planned zone\\nSL: defined\\nTP: defined");}

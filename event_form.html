@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}{{ "Edit" if event else "New" }} Event — Lutan{% endblock %}
+{% block content %}
+<section class="page-hero"><span class="eyebrow">ADMIN</span><h1>{{ "Edit" if event else "Create" }} event</h1></section>
+<section class="section narrow"><form class="form-card" method="post"><label>Title<input name="title" required value="{{event.title if event else ''}}"></label><label>Date / time<input name="date" required value="{{event.date if event else ''}}"></label><label>Venue<input name="venue" value="{{event.venue if event else ''}}"></label><label>Image URL<input name="image_url" value="{{event.image_url if event else ''}}"></label><label>Price<input name="price" value="{{event.price if event else ''}}"></label><label>Description<textarea name="description" rows="8">{{event.description if event else ''}}</textarea></label><button class="btn primary">Save event</button></form></section>
+{% endblock %}

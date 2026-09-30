@@ -1,130 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lutan Trading Academy">
-  <title>Lutan Trading Academy</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="nav">
-    <a class="brand" href="#top">Lutan Fx<span>.</span></a>
-    <nav>
-      <a href="#academy">Academy</a>
-      <a href="#steps">7 Steps</a>
-      <a href="#about">About</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a class="nav-btn" href="#join">Join Lutan</a>
-  </header>
+{% extends "base.html" %}
+{% block title %}Lutan Trading Academy — Trade With Structure{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy reveal">
+    <div class="eyebrow">● LUTAN TRADING ACADEMY</div>
+    <h1>Learn the market.<br><em>Trade with a plan.</em></h1>
+    <p class="lead">A beginner-friendly trading hub combining practical education, clear market concepts, risk management and structured trade ideas.</p>
+    <div class="actions"><a class="btn primary" href="{{ url_for('learn') }}">Start the Blueprint →</a><a class="btn ghost" href="{{ url_for('signals') }}">View Signals</a></div>
+    <div class="mini-stats"><span><b>01</b> Structured learning</span><span><b>02</b> Risk first</span><span><b>03</b> Clear execution</span></div>
+  </div>
+  <div class="hero-card reveal">
+    <div class="terminal-head"><span>●</span> XAUUSD · MARKET PLAN <span>LIVE</span></div>
+    <div class="chart"><div class="line"></div><div class="grid"></div></div>
+    <div class="trade-row"><div><small>BIAS</small><strong class="green">BUY</strong></div><div><small>ENTRY</small><strong>Market</strong></div><div><small>SL</small><strong>Defined</strong></div><div><small>TP</small><strong>Planned</strong></div></div>
+  </div>
+</section>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-glow"></div>
-      <div class="hero-content">
-        <p class="eyebrow">WELCOME TO THE 1% CLUB</p>
-        <h1>Trade with a <span>plan.</span><br>Move with purpose.</h1>
-        <p class="lead">Learn a structured approach to trading, understand the market, and build disciplined habits with Lutan Trading Academy.</p>
-        <div class="actions">
-          <a class="btn primary" href="#steps">Start Learning</a>
-          <a class="btn ghost" href="#academy">Explore Academy ↓</a>
-        </div>
-        <div class="mini-stats">
-          <div><strong>7</strong><small>CORE STEPS</small></div>
-          <div><strong>24/7</strong><small>LEARNING</small></div>
-          <div><strong>1%</strong><small>MINDSET</small></div>
-        </div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-top"><span>XAUUSD</span><span class="up">+2.84%</span></div>
-        <div class="chart">
-          <div class="grid"></div>
-          <svg viewBox="0 0 500 260" preserveAspectRatio="none">
-            <polyline points="0,220 40,190 80,205 115,150 150,170 190,115 225,135 260,95 300,110 335,70 370,90 405,48 440,63 500,25"/>
-          </svg>
-        </div>
-        <div class="chart-bottom"><span>BUY</span><span>Market structure • Risk • Execution</span></div>
-      </div>
-    </section>
+<section class="numbers">
+  <div><strong>7</strong><span>Core learning steps</span></div>
+  <div><strong>3</strong><span>Risk controls</span></div>
+  <div><strong>2</strong><span>Market directions</span></div>
+  <div><strong>24/7</strong><span>Learn at your pace</span></div>
+</section>
 
-    <section class="section" id="academy">
-      <div class="section-head">
-        <p class="eyebrow">THE ACADEMY</p>
-        <h2>Build the skills before chasing the trade.</h2>
-        <p>Simple education, practical examples and a repeatable framework designed for developing traders.</p>
-      </div>
-      <div class="cards three">
-        <article class="card"><b>01</b><h3>Learn the market</h3><p>Understand price action, structure, liquidity and the language traders use every day.</p></article>
-        <article class="card"><b>02</b><h3>Build a setup</h3><p>Create rules for entries, exits and risk so your decisions are not based on emotion.</p></article>
-        <article class="card"><b>03</b><h3>Execute & review</h3><p>Track your trades, review your process and improve one decision at a time.</p></article>
-      </div>
-    </section>
+<section class="section" id="start">
+  <div class="section-title"><span>THE BLUEPRINT</span><h2>From beginner to structured trader.</h2><p>Use the same logical flow throughout the site: learn the platform, understand the instrument, manage risk, then practice execution.</p></div>
+  <div class="steps">
+    {% for title, text in [
+      ("01","Set up your trading platform","Start with a demo account and learn where orders, charts and positions live."),
+      ("02","Build a demo account","Practice with virtual funds before committing real capital."),
+      ("03","Find the market","Gold is commonly represented as XAUUSD on many trading platforms."),
+      ("04","Understand BUY & SELL","A BUY seeks upward movement; a SELL seeks downward movement."),
+      ("05","Control your risk","Lot size, Stop Loss and Take Profit are core execution tools."),
+      ("06","Read a trade idea","Learn how an entry, SL and TP fit together before placing an order."),
+      ("07","Go live carefully","Only consider real-money trading after you understand the risks and have a plan.")
+    ] %}
+    <article class="step-card"><span>{{title}}</span><h3>{{text}}</h3><p>{{ loop.index }}. {{ ["Set up your tools and learn the interface.","Practice without risking real funds.","Understand symbols and market terminology.","Learn both market directions.","Define the maximum loss and target before entry.","Translate a plan into a platform order.","Scale only when your process is consistent."][loop.index0] }}</p></article>
+    {% endfor %}
+  </div>
+</section>
 
-    <section class="dark-section" id="steps">
-      <div class="section-head">
-        <p class="eyebrow">THE FRAMEWORK</p>
-        <h2>7 steps to a more structured trade.</h2>
-      </div>
-      <div class="steps">
-        <div class="step"><span>01</span><div><h3>Market bias</h3><p>Start with the bigger picture and identify the direction you are studying.</p></div></div>
-        <div class="step"><span>02</span><div><h3>Key levels</h3><p>Mark areas where price has previously reacted and where your idea could become invalid.</p></div></div>
-        <div class="step"><span>03</span><div><h3>Liquidity</h3><p>Study obvious highs, lows and areas where orders may be concentrated.</p></div></div>
-        <div class="step"><span>04</span><div><h3>Confirmation</h3><p>Wait for your defined conditions instead of entering because price is moving quickly.</p></div></div>
-        <div class="step"><span>05</span><div><h3>Entry</h3><p>Use a specific entry model that you have tested and understand.</p></div></div>
-        <div class="step"><span>06</span><div><h3>Risk</h3><p>Define your stop and position size before entering the trade.</p></div></div>
-        <div class="step"><span>07</span><div><h3>Review</h3><p>Journal the trade and measure whether you followed your process.</p></div></div>
-      </div>
-    </section>
+<section class="section split">
+  <div class="content-box"><span class="eyebrow">MARKET BASICS</span><h2>BUY or SELL — understand the difference.</h2><p>Trading decisions should start with a defined plan rather than a promise of profit.</p><div class="direction-grid"><div class="direction buy"><b>↑ BUY</b><span>Plan for price to rise.</span></div><div class="direction sell"><b>↓ SELL</b><span>Plan for price to fall.</span></div></div></div>
+  <div class="content-box"><span class="eyebrow">RISK CONTROL</span><h2>Three terms to know.</h2><div class="term"><b>LOT SIZE</b><p>Determines position size and therefore affects potential gains and losses.</p></div><div class="term"><b>SL · STOP LOSS</b><p>An order level intended to limit a trade's loss.</p></div><div class="term"><b>TP · TAKE PROFIT</b><p>An order level intended to close a trade at a planned profit target.</p></div></div>
+</section>
 
-    <section class="section">
-      <div class="section-head">
-        <p class="eyebrow">TRADE IDEA</p>
-        <h2>Know your BUY. Know your SELL.</h2>
-      </div>
-      <div class="trade-grid">
-        <article class="trade buy"><div class="tag">BUY SETUP</div><h3>Look for confirmation</h3><p>Plan the entry, invalidation and target before committing capital.</p><div class="levels"><span>ENTRY</span><span>STOP</span><span>TARGET</span></div></article>
-        <article class="trade sell"><div class="tag">SELL SETUP</div><h3>Respect the invalidation</h3><p>A good setup is still allowed to fail. Risk management comes first.</p><div class="levels"><span>ENTRY</span><span>STOP</span><span>TARGET</span></div></article>
-      </div>
-      <p class="disclaimer">Educational content only. Trading involves substantial risk and losses can exceed expectations. This website does not provide financial advice.</p>
-    </section>
+<section class="section">
+  <div class="section-title"><span>EVENTS</span><h2>Upcoming Lutan sessions.</h2></div>
+  <div class="event-grid">
+    {% for event in events %}
+    <a class="event-card" href="{{ url_for('event_detail', event_id=event.id) }}">
+      {% if event.image_url %}<img src="{{ event.image_url }}" alt="">{% endif %}
+      <div><small>{{ event.date }}</small><h3>{{ event.title }}</h3><p>{{ event.venue }}</p><b>{{ event.price or "Details →" }}</b></div>
+    </a>
+    {% else %}<div class="empty">No events yet. Add your first event from the admin area.</div>{% endfor %}
+  </div>
+</section>
 
-    <section class="quote-section">
-      <div>
-        <p class="eyebrow">THE LUTAN MINDSET</p>
-        <h2>Consistency is built from the decisions nobody sees.</h2>
-      </div>
-      <p>Don't trade because you feel you have to. Build a process you can repeat, document it, and let your results teach you.</p>
-    </section>
-
-    <section class="section" id="about">
-      <div class="about">
-        <div class="about-photo"><span>LUTAN</span></div>
-        <div>
-          <p class="eyebrow">ABOUT LUTAN</p>
-          <h2>A home for traders who want structure.</h2>
-          <p>Lutan Trading Academy is a concept for practical trading education. Replace this text with your own story, experience, achievements and teaching philosophy.</p>
-          <a class="btn primary" href="#join">Join the community</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section faq" id="faq">
-      <div class="section-head"><p class="eyebrow">FAQ</p><h2>Questions, answered.</h2></div>
-      <details><summary>Is this financial advice?</summary><p>No. The material is educational and should not be treated as personalised financial advice.</p></details>
-      <details><summary>Can beginners use the academy?</summary><p>Yes. The structure is designed to introduce concepts step by step.</p></details>
-      <details><summary>Can I replace the content?</summary><p>Yes. Every section is plain HTML, so you can edit the text, links, images and branding in VS Code.</p></details>
-    </section>
-
-    <section class="join" id="join">
-      <p class="eyebrow">READY TO BUILD YOUR PROCESS?</p>
-      <h2>Welcome to Lutan.</h2>
-      <p>Telegram</p>
-      <a class="btn primary" href="#" onclick="return false;">https://t.me/elitesignals_v →</a>
-    </section>
-  </main>
-
-  <footer><span>© 2024 Lutan Trading Academy</span><span> content only.</span></footer>
-  <script src="script.js"></script>
-</body>
-</html>
+<section class="cta section"><span class="eyebrow">LUTAN COMMUNITY</span><h2>Build skill before chasing results.</h2><p>Use education, demo practice and risk controls as the foundation of your trading process.</p><a class="btn primary" href="{{ url_for('learn') }}">Explore the learning path →</a></section>
+{% endblock %}

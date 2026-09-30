@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Signals — Lutan Trading Academy{% endblock %}
+{% block content %}
+<section class="page-hero"><span class="eyebrow">TRADE IDEA FORMAT</span><h1>Clear numbers. Clear risk.</h1><p>Examples show the structure of a signal; they are not live trading recommendations.</p></section>
+<section class="section signal-layout">
+  <div class="signal-card"><div class="signal-top">LUTAN MARKET DESK <span>EXAMPLE</span></div><h2>🔥 GOLD BUY ZONE</h2><div class="signal-line"><span>Entry</span><b>Market / planned zone</b></div><div class="signal-line"><span>Stop Loss</span><b>Defined before entry</b></div><div class="signal-line"><span>Take Profit</span><b>Defined before entry</b></div><button class="btn primary" onclick="copySignal()">Copy format</button></div>
+  <div><h2>How to read a setup</h2><ol class="read-list"><li><b>Direction:</b> know whether the plan is BUY or SELL.</li><li><b>Entry:</b> identify where the trade idea becomes active.</li><li><b>SL:</b> know the level that invalidates the idea.</li><li><b>TP:</b> know the intended target before entering.</li></ol></div>
+</section>
+<section class="section"><div class="calculator"><h2>Simple risk calculator</h2><div class="calc-grid"><label>Account balance<input id="balance" type="number" value="1000"></label><label>Risk %<input id="risk" type="number" value="1" step="0.1"></label></div><button class="btn primary" onclick="calculateRisk()">Calculate</button><p id="risk-result">Maximum planned loss: $10.00</p></div></section>
+{% endblock %}

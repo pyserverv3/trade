@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Events — Lutan Trading Academy{% endblock %}
+{% block content %}
+<section class="page-hero"><span class="eyebrow">LUTAN EVENTS</span><h1>Sessions, workshops and community events.</h1><p>Events are managed from your Flask admin area and stored in the database.</p></section>
+<section class="section event-grid">{% for event in events %}<a class="event-card" href="{{ url_for('event_detail', event_id=event.id) }}">{% if event.image_url %}<img src="{{event.image_url}}" alt="">{% endif %}<div><small>{{event.date}}</small><h3>{{event.title}}</h3><p>{{event.venue}}</p><b>{{event.price}}</b></div></a>{% else %}<div class="empty">No events available.</div>{% endfor %}</section>
+{% endblock %}
